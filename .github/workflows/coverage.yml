@@ -10,6 +10,7 @@ on:
     branches:
       - main
       - develop
+      - qtcitests
       - beta/*
     paths-ignore:
       - "doc/**"
@@ -42,6 +43,6 @@ jobs:
           create-symlink: true
       - uses: rui314/setup-mold@v1
       - uses: astral-sh/setup-uv@v4
-      - run: uv pip install --system nox
+      - run: uv pip install --system nox PySide6==6.8.1
       - run: nox -s cov
       - uses: AndreMiras/coveralls-python-action@develop
